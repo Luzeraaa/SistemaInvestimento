@@ -18,7 +18,6 @@ Olá, sejam bem-vindos
   <li>Auth0</li>
   <li>Migrations/Flyway</li>
   <li>Banco de dados H2</li>
-  <li></li>
   <li>Lombok</li>
   <li>JPA/Hibernate</li>
   <li>SQL</li>
