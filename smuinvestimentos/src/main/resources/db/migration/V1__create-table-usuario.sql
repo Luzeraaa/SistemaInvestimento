@@ -1,0 +1,5 @@
+CREATE TABLE usuario (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  login VARCHAR(255) UNIQUE,
+  senha VARCHAR(255)
+);
