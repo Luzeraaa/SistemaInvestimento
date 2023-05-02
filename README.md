@@ -11,6 +11,7 @@ Olá, sejam bem-vindos
 <h2>Para acessar a página de testes do swagger caso teste localmente utilize: <b>http://localhost:8080/swagger-ui/index.html</b>
   
 <ul>
+  <li>Java 17</li>
   <li>Spring Boot</li>
   <li>Spring Data JPA</li>
   <li>Spring Dev Tools</li>
