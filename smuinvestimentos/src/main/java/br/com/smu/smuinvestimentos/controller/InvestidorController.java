@@ -100,7 +100,8 @@ public class InvestidorController {
 			throw new RuntimeException("Conta não encontrada");
 		}
 		
-		Extrato extrato = new Extrato("SACAR", dados.valor(), conta);
+		Extrato extrato = new Extrato("SAQUE", dados.valor(), conta);
+		extratoRepository.save(extrato);
 		
 		conta.sacar(dados.valor());
 		contaRepository.save(conta);
