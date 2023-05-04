@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.smu.smuinvestimentos.domain.Conta.Conta;
 import br.com.smu.smuinvestimentos.domain.Conta.ContaRepository;
+import jakarta.transaction.Transactional;
 
 @RequestMapping("admin")
 @RestController
@@ -21,6 +22,7 @@ public class UsuarioController {
 	
 	
 	@PostMapping("/{numeroConta}/{codigo}/{ativo}") 
+	@Transactional
 	public ResponseEntity desativar(@PathVariable int numeroConta, @PathVariable int codigo, @PathVariable boolean ativo) {
 		
 		if(codigo == this.CODIGO) {

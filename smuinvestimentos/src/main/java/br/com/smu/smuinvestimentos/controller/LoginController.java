@@ -14,6 +14,7 @@ import br.com.smu.smuinvestimentos.domain.usuario.Usuario;
 import br.com.smu.smuinvestimentos.domain.usuario.dto.DadosLogin;
 import br.com.smu.smuinvestimentos.infra.DadosToken;
 import br.com.smu.smuinvestimentos.infra.TokenService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -29,6 +30,7 @@ public class LoginController {
 	
 	
 	@PostMapping
+	@Transactional
 	public ResponseEntity login(@RequestBody @Valid DadosLogin dados) {
 		
 		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());

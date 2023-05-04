@@ -29,6 +29,7 @@ import br.com.smu.smuinvestimentos.domain.investidor.dto.DadosDepositoSaque;
 import br.com.smu.smuinvestimentos.domain.investidor.dto.DadosListagemInvestidorPf;
 import br.com.smu.smuinvestimentos.domain.investidor.dto.DadosListagemInvestidorPj;
 import br.com.smu.smuinvestimentos.domain.investidor.dto.DadosTransferencia;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
 @RestController
@@ -51,6 +52,7 @@ public class InvestidorController {
 	@Autowired InvestidorService service;
 	
 	@PostMapping
+	@Transactional
 	public ResponseEntity<?> cadastrar(@RequestBody @Valid DadosCadastroInvestidor dados,
 			UriComponentsBuilder uriBuilder) {
 
@@ -73,6 +75,7 @@ public class InvestidorController {
 	
 	
 	@PutMapping("/depositar")
+	@Transactional
 	public ResponseEntity depositar(@RequestBody @Valid DadosDepositoSaque dados) {
 		
 		Conta conta = contaRepository.findByNumero(dados.numeroConta());
@@ -92,6 +95,7 @@ public class InvestidorController {
 	}
 	
 	@PutMapping("/sacar")
+	@Transactional
 	public ResponseEntity sacar(@RequestBody @Valid DadosDepositoSaque dados) {
 		
 		Conta conta = contaRepository.findByNumero(dados.numeroConta());
@@ -111,6 +115,7 @@ public class InvestidorController {
 	}
 	
 	@PutMapping("/transferir")
+	@Transactional
 	public ResponseEntity transferir(@RequestBody @Valid DadosTransferencia dados) {
 		
 		Conta contaOrigem  = contaRepository.findByNumero(dados.numeroContaOrigem());
