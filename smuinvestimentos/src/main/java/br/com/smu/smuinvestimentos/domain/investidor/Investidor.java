@@ -9,6 +9,7 @@ import br.com.smu.smuinvestimentos.domain.investidor.dto.DadosCadastroInvestidor
 import br.com.smu.smuinvestimentos.domain.usuario.Usuario;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -39,7 +40,7 @@ public abstract class Investidor {
     
     private String senha;
 
-    @OneToOne(mappedBy = "investidor", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "investidor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Conta conta;
     
     private boolean ativo;

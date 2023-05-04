@@ -7,6 +7,7 @@ import java.util.Set;
 import br.com.smu.smuinvestimentos.domain.investidor.Investidor;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -39,7 +40,7 @@ public class Conta {
     @JoinColumn(name = "investidor_id")
     private Investidor investidor;
     
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "conta_id")
     private Set<Extrato> extrato = new HashSet<>();
     
